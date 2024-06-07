@@ -14,10 +14,11 @@ if (isPortIsReserved(port)) {
 import { getAsset } from 'node:sea';
 const dir = getAsset('bundle.asar') as never;
 
-await startServer({
+startServer({
     dir,
     isDev: false,
     hostname: host,
     port,
     keepAliveTimeout,
 })
+  .catch(console.error)

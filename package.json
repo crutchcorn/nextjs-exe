@@ -1,6 +1,6 @@
 {
-  "name": "exe-test",
-  "version": "1.0.0",
+  "name": "tauri-rsc-exploration",
+  "version": "0.0.1",
   "description": "",
   "type": "commonjs",
   "engines": {

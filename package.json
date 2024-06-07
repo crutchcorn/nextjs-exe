@@ -2,13 +2,19 @@
   "name": "exe-test",
   "version": "1.0.0",
   "description": "",
+  "type": "commonjs",
   "engines": {
     "node": ">=22.0.0",
     "pnpm": ">=9.0.0"
   },
   "scripts": {
-    "build": "npx esbuild --format=cjs --target=node20 --platform=node --bundle --outfile=out/bundle.js src/index.js",
-    "make": "pnpm build && pnpm generate-blob && pnpm copy-node && pnpm remove-signature && pnpm inject-blob && pnpm sign-binary",
+    "esbuild:build": "npx esbuild --format=cjs --target=node20 --platform=node --bundle --outfile=out/bundle.js src/start.js",
+    "next:dev": "next dev",
+    "next:build": "next build",
+    "next:bundle": "asar pack ./.next ./out/bundle.asar",
+    "//": "ESBuild's start.js needs to access the blob from SEA then pass it somehow as the 'dir' to next's start command",
+    "///": "But to do that, we need to monkey-patch the node:fs APIs to read asar",
+    "make": "pnpm next:build && pnpm next:bundle && pnpm esbuild:build && pnpm generate-blob && pnpm copy-node && pnpm remove-signature && pnpm inject-blob && pnpm sign-binary",
     "generate-blob": "node --experimental-sea-config sea-config.json",
     "copy-node": "run-script-os",
     "copy-node:win32": "node -e \"require('fs').copyFileSync(process.execPath, 'its-node.exe')\"",
@@ -27,9 +33,15 @@
     "sign-binary:default": "echo 'No signature to add'"
   },
   "devDependencies": {
-    "run-script-os": "^1.1.6",
+    "esbuild": "^0.21.4",
     "postject": "^1.0.0-alpha.6",
-    "esbuild": "^0.21.4"
+    "run-script-os": "^1.1.6",
+    "@electron/asar": "^3.2.10"
+  },
+  "dependencies": {
+    "next": "15.0.0-rc.0",
+    "react": "19.0.0-rc-827cbea417-20240606",
+    "react-dom": "19.0.0-rc-827cbea417-20240606"
   },
   "keywords": [],
   "author": "",

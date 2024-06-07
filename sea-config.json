@@ -3,5 +3,8 @@
   "output": "./out/blob.blob",
   "disableExperimentalSEAWarning": true,
   "useSnapshot": false,
-  "useCodeCache": false
+  "useCodeCache": false,
+  "assets":{
+    "bundle.asar": "./out/bundle.asar"
+  }
 }

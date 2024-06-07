@@ -1,0 +1,7 @@
+{
+  "main": "./out/bundle.js",
+  "output": "./out/blob.blob",
+  "disableExperimentalSEAWarning": true,
+  "useSnapshot": false,
+  "useCodeCache": false
+}

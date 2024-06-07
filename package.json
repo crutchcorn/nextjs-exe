@@ -1,0 +1,37 @@
+{
+  "name": "exe-test",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "build": "npx esbuild --format=cjs --target=node20 --platform=node --bundle --outfile=out/bundle.js src/index.js",
+    "make": "pnpm build && pnpm generate-blob && pnpm copy-node && pnpm remove-signature && pnpm inject-blob && pnpm sign-binary",
+    "generate-blob": "node --experimental-sea-config sea-config.json",
+    "copy-node": "run-script-os",
+    "copy-node:win32": "node -e \"require('fs').copyFileSync(process.execPath, 'its-node.exe')\"",
+    "copy-node:default": "cp $(command -v node) its-node",
+    "remove-signature": "run-script-os",
+    "remove-signature:win32": "signtool remove /c /u /s its-node.exe",
+    "remove-signature:macos": "codesign --remove-signature its-node",
+    "remove-signature:default": "echo 'No signature to remove'",
+    "inject-blob": "run-script-os",
+    "inject-blob:macos": "postject its-node NODE_SEA_BLOB ./out/blob.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 --macho-segment-name NODE_SEA",
+    "inject-blob:win32": "npx postject its-node.exe NODE_SEA_BLOB ./out/blob.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2",
+    "inject-blob:default": "npx postject its-node NODE_SEA_BLOB ./out/blob.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2",
+    "sign-binary": "run-script-os",
+    "sign-binary:win32": "signtool sign /fd SHA256 its-node.exe",
+    "sign-binary:macos": "codesign -s - its-node",
+    "sign-binary:default": "echo 'No signature to add'"
+  },
+  "devDependencies": {
+    "run-script-os": "^1.1.6",
+    "postject": "^1.0.0-alpha.6",
+    "esbuild": "^0.21.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

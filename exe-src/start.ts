@@ -1,7 +1,10 @@
-import 'next/dist/server/lib/cpu-profile'
-import {startServer} from 'next/dist/server/lib/start-server'
-import {printAndExit} from 'next/dist/server/lib/utils'
-import {getReservedPortExplanation, isPortIsReserved,} from 'next/dist/lib/helpers/get-reserved-port'
+import './nextjs/packages/next/src/server/lib/cpu-profile'
+import { startServer } from './nextjs/packages/next/src/server/lib/start-server'
+import { printAndExit } from './nextjs/packages/next/src/server/lib/utils'
+import {
+    getReservedPortExplanation,
+    isPortIsReserved,
+} from './nextjs/packages/next/src/lib/helpers/get-reserved-port'
 
 const host = "localhost"
 const port = 3000

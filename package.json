@@ -5,7 +5,7 @@
   "type": "commonjs",
   "engines": {
     "node": ">=22.0.0",
-    "pnpm": ">=9.0.0"
+    "pnpm": "8.15.7"
   },
   "scripts": {
     "esbuild:build": "tsx scripts/esbuild.ts",
@@ -56,5 +56,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "packageManager": "pnpm@8.15.7"
 }

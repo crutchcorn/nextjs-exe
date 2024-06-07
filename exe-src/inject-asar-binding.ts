@@ -1,5 +1,6 @@
 import * as asar from "@electron/asar"
 
+// @ts-ignore
 const originalLinked = process._linkedBinding;
 
 // @ts-ignore

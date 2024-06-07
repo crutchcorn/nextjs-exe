@@ -46,9 +46,9 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
 
-  src/electron/default_app: {}
+  exe-src/electron/default_app: {}
 
-  src/electron/npm:
+  exe-src/electron/npm:
     dependencies:
       '@electron/get':
         specifier: ^2.0.0
@@ -60,17 +60,17 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
 
-  src/electron/spec:
+  exe-src/electron/spec:
     devDependencies:
       '@electron-ci/echo':
         specifier: file:./fixtures/native-addon/echo
-        version: file:src/electron/spec/fixtures/native-addon/echo
+        version: file:exe-src/electron/spec/fixtures/native-addon/echo
       '@electron-ci/is-valid-window':
         specifier: file:./is-valid-window
-        version: is-valid-window@file:src/electron/spec/is-valid-window
+        version: is-valid-window@file:exe-src/electron/spec/is-valid-window
       '@electron-ci/uv-dlopen':
         specifier: file:./fixtures/native-addon/uv-dlopen/
-        version: file:src/electron/spec/fixtures/native-addon/uv-dlopen
+        version: file:exe-src/electron/spec/fixtures/native-addon/uv-dlopen
       '@electron/fuses':
         specifier: ^1.8.0
         version: 1.8.0
@@ -161,11 +161,11 @@ importers:
 
 packages:
 
-  '@electron-ci/echo@file:src/electron/spec/fixtures/native-addon/echo':
-    resolution: {directory: src/electron/spec/fixtures/native-addon/echo, type: directory}
+  '@electron-ci/echo@file:exe-src/electron/spec/fixtures/native-addon/echo':
+    resolution: {directory: exe-src/electron/spec/fixtures/native-addon/echo, type: directory}
 
-  '@electron-ci/uv-dlopen@file:src/electron/spec/fixtures/native-addon/uv-dlopen':
-    resolution: {directory: src/electron/spec/fixtures/native-addon/uv-dlopen, type: directory}
+  '@electron-ci/uv-dlopen@file:exe-src/electron/spec/fixtures/native-addon/uv-dlopen':
+    resolution: {directory: exe-src/electron/spec/fixtures/native-addon/uv-dlopen, type: directory}
 
   '@electron/asar@3.2.10':
     resolution: {integrity: sha512-mvBSwIBUeiRscrCeJE1LwctAriBj65eUDm0Pc11iE5gRwzkmsdbS7FnZ1XUWjpSeQWL1L5g12Fc/SchPM9DUOw==}
@@ -1141,8 +1141,8 @@ packages:
     resolution: {integrity: sha512-knxG2q4UC3u8stRGyAVJCOdxFmv5DZiRcdlIaAQXAbSfJya+OhopNotLQrstBhququ4ZpuKbDc/8S6mgXgPFPw==}
     engines: {node: '>=10'}
 
-  is-valid-window@file:src/electron/spec/is-valid-window:
-    resolution: {directory: src/electron/spec/is-valid-window, type: directory}
+  is-valid-window@file:exe-src/electron/spec/is-valid-window:
+    resolution: {directory: exe-src/electron/spec/is-valid-window, type: directory}
 
   isarray@0.0.1:
     resolution: {integrity: sha512-D2S+3GLxWH+uhrNEcoh/fnmYeP8E8/zHl644d/jdA0g2uyXvy3sb0qxotE+ne0LtccHknQzWwZEzhak7oJ0COQ==}
@@ -1239,10 +1239,6 @@ packages:
 
   minimatch@5.0.1:
     resolution: {integrity: sha512-nLDxIFRyhDblz3qMuq+SoRZED4+miJ/G+tdDrjkkkRnjAsBexeGpgjLEQ0blJy7rHhR2b93rhQY4SvyWu9v03g==}
-    engines: {node: '>=10'}
-
-  minimatch@5.1.6:
-    resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
     engines: {node: '>=10'}
 
   minimatch@9.0.4:
@@ -1823,9 +1819,9 @@ packages:
 
 snapshots:
 
-  '@electron-ci/echo@file:src/electron/spec/fixtures/native-addon/echo': {}
+  '@electron-ci/echo@file:exe-src/electron/spec/fixtures/native-addon/echo': {}
 
-  '@electron-ci/uv-dlopen@file:src/electron/spec/fixtures/native-addon/uv-dlopen': {}
+  '@electron-ci/uv-dlopen@file:exe-src/electron/spec/fixtures/native-addon/uv-dlopen': {}
 
   '@electron/asar@3.2.10':
     dependencies:
@@ -2664,7 +2660,7 @@ snapshots:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 5.1.6
+      minimatch: 5.0.1
       once: 1.4.0
 
   global-agent@3.0.0:
@@ -2779,7 +2775,7 @@ snapshots:
 
   is-unicode-supported@0.1.0: {}
 
-  is-valid-window@file:src/electron/spec/is-valid-window:
+  is-valid-window@file:exe-src/electron/spec/is-valid-window:
     dependencies:
       nan: 2.19.0
 
@@ -2873,10 +2869,6 @@ snapshots:
       brace-expansion: 1.1.11
 
   minimatch@5.0.1:
-    dependencies:
-      brace-expansion: 2.0.1
-
-  minimatch@5.1.6:
     dependencies:
       brace-expansion: 2.0.1
 

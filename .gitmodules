@@ -1,3 +1,3 @@
-[submodule "src/electron"]
-	path = src/electron
+[submodule "exe-src/electron"]
+	path = exe-src/electron
 	url = https://github.com/electron/electron.git

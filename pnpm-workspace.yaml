@@ -1,2 +1,2 @@
 packages:
-  - 'src/electron/*'
+  - 'exe-src/electron/*'

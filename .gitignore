@@ -1,5 +1,5 @@
 node_modules/
-*.exe
+its-node.exe
 its-node
 .idea/
 .next/

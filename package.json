@@ -17,7 +17,7 @@
     "make": "pnpm next:build && pnpm next:bundle && pnpm esbuild:build && pnpm generate-blob && pnpm copy-node && pnpm remove-signature && pnpm inject-blob && pnpm sign-binary",
     "generate-blob": "node --experimental-sea-config sea-config.json",
     "copy-node": "run-script-os",
-    "copy-node:win32": "node -e \"require('fs').copyFileSync(process.execPath, 'its-node.exe')\"",
+    "copy-node:win32": "cp ./vendor/node.exe its-node.exe",
     "copy-node:default": "cp $(command -v node) its-node",
     "remove-signature": "run-script-os",
     "remove-signature:win32": "signtool remove /c /u /s its-node.exe",

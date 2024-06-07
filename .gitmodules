@@ -1,3 +1,7 @@
 [submodule "exe-src/electron"]
 	path = exe-src/electron
 	url = https://github.com/electron/electron.git
+[submodule "vendor/node"]
+	path = vendor/node
+	url = https://github.com/crutchcorn/node.git
+	branch = v20.2.0-always-expose-internals

@@ -24,9 +24,9 @@
     "remove-signature:macos": "codesign --remove-signature its-node",
     "remove-signature:default": "echo 'No signature to remove'",
     "inject-blob": "run-script-os",
-    "inject-blob:macos": "postject its-node NODE_SEA_BLOB ./out/blob.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 --macho-segment-name NODE_SEA",
-    "inject-blob:win32": "npx postject its-node.exe NODE_SEA_BLOB ./out/blob.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2",
-    "inject-blob:default": "npx postject its-node NODE_SEA_BLOB ./out/blob.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2",
+    "inject-blob:macos": "postject --overwrite its-node NODE_SEA_BLOB ./out/blob.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 --macho-segment-name NODE_SEA",
+    "inject-blob:win32": "postject --overwrite its-node.exe NODE_SEA_BLOB ./out/blob.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2",
+    "inject-blob:default": "postject --overwrite its-node NODE_SEA_BLOB ./out/blob.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2",
     "sign-binary": "run-script-os",
     "sign-binary:win32": "signtool sign /fd SHA256 its-node.exe",
     "sign-binary:macos": "codesign -s - its-node",
@@ -36,12 +36,21 @@
     "esbuild": "^0.21.4",
     "postject": "^1.0.0-alpha.6",
     "run-script-os": "^1.1.6",
-    "@electron/asar": "^3.2.10"
+    "@electron/asar": "^3.2.10",
+    "@types/node": "^20.14.2",
+    "typescript": "^5.4.5",
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc"
   },
   "dependencies": {
+    "electron": "^31.0.0-beta.9",
     "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-827cbea417-20240606",
     "react-dom": "19.0.0-rc-827cbea417-20240606"
+  },
+  "overrides": {
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc"
   },
   "keywords": [],
   "author": "",

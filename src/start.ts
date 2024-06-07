@@ -23,6 +23,9 @@
 //
 
 // TODO: Pass this to the Next server above and start server with patched `fs` module
-const { getAsset } = require('node:sea');
+import { getAsset } from 'node:sea';
 const blob = getAsset('bundle.asar');
-console.log({blob})
+
+import * as test from "./electron/lib/node/asar-fs-wrapper"
+
+console.log({test, blob});

@@ -8,7 +8,7 @@
     "pnpm": ">=9.0.0"
   },
   "scripts": {
-    "esbuild:build": "npx esbuild --format=cjs --target=node20 --platform=node --bundle --outfile=out/bundle.js --external:original-fs --external:babel-plugin-react-compiler --external:sass --external:@opentelemetry/api --external:@playwright/test --inject:./exe-src/inject-asar-fs.ts --inject:./exe-src/inject-asar-binding.ts ./exe-src/start.js",
+    "esbuild:build": "tsx scripts/esbuild.ts",
     "next:dev": "next dev",
     "next:build": "next build",
     "next:bundle": "asar pack ./.next ./out/bundle.asar",
@@ -41,7 +41,8 @@
     "husky": "^9.0.11",
     "postject": "^1.0.0-alpha.6",
     "run-script-os": "^1.1.6",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "tsx": "^4.13.2"
   },
   "dependencies": {
     "electron": "^31.0.0-beta.9",

@@ -1,9 +1,9 @@
-# Tauri + React RSC Exploration
+# Next.js.exe
 
 > **This is a bad idea that should not be used in production**.
 
-What if we could get Next.js' SSR mode running in Tauri as a sidecar? That would allow us to use React's RSC mechanisms in our apps,
-which could serve interestingly.
+This is a proof of concept for running the Next.js dev server as a single executable that contains all of the assets and code needed to run the server,
+including RSC support.
 
 ## Architecture Diagram
 

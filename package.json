@@ -8,13 +8,11 @@
     "pnpm": "8.15.7"
   },
   "scripts": {
-    "esbuild:build": "tsx scripts/esbuild.ts",
+    "webpack:build": "webpack --mode production --config ./scripts/webpack.config.js",
     "next:dev": "next dev",
     "next:build": "next build",
     "next:bundle": "asar pack ./.next ./out/bundle.asar",
-    "//": "ESBuild's start.js needs to access the blob from SEA then pass it somehow as the 'dir' to next's start command",
-    "///": "But to do that, we need to monkey-patch the node:fs APIs to read asar",
-    "make": "pnpm next:build && pnpm next:bundle && pnpm esbuild:build && pnpm generate-blob && pnpm copy-node && pnpm remove-signature && pnpm inject-blob && pnpm sign-binary",
+    "make": "pnpm next:build && pnpm next:bundle && pnpm webpack:build && pnpm generate-blob && pnpm copy-node && pnpm remove-signature && pnpm inject-blob && pnpm sign-binary",
     "generate-blob": "node --experimental-sea-config sea-config.json",
     "copy-node": "run-script-os",
     "copy-node:win32": "cp ./vendor/node.exe its-node.exe",
@@ -33,16 +31,24 @@
     "sign-binary:default": "echo 'No signature to add'"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-import-attributes": "7.22.5",
+    "@babel/preset-env": "7.22.5",
+    "@babel/preset-react": "7.22.5",
+    "@babel/preset-typescript": "7.22.5",
     "@electron/asar": "^3.2.10",
     "@types/node": "^20.14.2",
     "@types/react": "npm:types-react@rc",
     "@types/react-dom": "npm:types-react-dom@rc",
-    "esbuild": "^0.21.4",
+    "babel-loader": "^9.1.3",
     "husky": "^9.0.11",
+    "node-loader": "^2.0.0",
     "postject": "^1.0.0-alpha.6",
+    "raw-loader": "^4.0.2",
     "run-script-os": "^1.1.6",
+    "tsx": "^4.13.2",
     "typescript": "^5.4.5",
-    "tsx": "^4.13.2"
+    "webpack": "^5.91.0",
+    "webpack-cli": "^4.10.0"
   },
   "dependencies": {
     "electron": "^31.0.0-beta.9",

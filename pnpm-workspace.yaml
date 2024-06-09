@@ -1,4 +1,4 @@
 packages:
   - 'exe-src/electron'
   - 'exe-src/nextjs'
-  - 'exe-src/nextjs/packages/next'
+  - 'exe-src/nextjs/packages/*'

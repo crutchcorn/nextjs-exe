@@ -5,3 +5,7 @@
 	path = vendor/node
 	url = https://github.com/crutchcorn/node.git
 	branch = v20.2.0-always-expose-internals
+[submodule "exe-src/nextjs"]
+	path = exe-src/nextjs
+	url = https://github.com/crutchcorn/next.js.git
+	branch = canary-react-rc-version
